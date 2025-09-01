@@ -32,6 +32,18 @@ body {
     line-height: 1.6;
 }
 
+.container {
+    max-width: var(--maxw);
+    margin: 1rem auto 2rem;
+    padding: 0 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
 .site-header {
     background: linear-gradient(0deg, var(--nav), var(--header));
     color: #fff;
@@ -104,18 +116,6 @@ body {
     outline: none;
 }
 
-.container {
-    max-width: var(--maxw);
-    margin: 1rem auto 2rem;
-    padding: 0 1rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
-}
-
 .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -167,6 +167,31 @@ body {
     height: 1px;
     background: var(--border);
     margin-top: .4rem;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: .75rem 1.25rem;
+    list-style: none;
+    padding: 1rem 1.25rem 1.25rem;
+    margin: 0;
+}
+
+.links li {
+    margin: .6rem 0;
+}
+
+.links a {
+    color: var(--link);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.links a:hover,
+.links a:focus {
+    color: var(--link-hover);
+    outline: none;
 }
 
 .place {
@@ -226,31 +251,6 @@ body {
     margin-top: .4rem;
     font-size: .9rem;
     color: var(--muted);
-}
-
-.links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: .75rem 1.25rem;
-    list-style: none;
-    padding: 1rem 1.25rem 1.25rem;
-    margin: 0;
-}
-
-.links li {
-    margin: .6rem 0;
-}
-
-.links a {
-    color: var(--link);
-    text-decoration: underline;
-    font-weight: 700;
-}
-
-.links a:hover,
-.links a:focus {
-    color: var(--link-hover);
-    outline: none;
 }
 
 .site-footer {
