@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WDD 131 – Dynamic Web Fundamentals – Francesco Foresta</title>
+    <meta name="description"
+        content="WDD 131 – Dynamic Web Fundamentals | Francesco Foresta | Landing page with about, resources, and dynamic dates.">
+    <meta name="author" content="Francesco Foresta">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/getdates.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <span id="course-title">WDD 131 – Dynamic Web Fundamentals</span>
+
+        <nav aria-label="Primary" class="top-nav">
+            <ul>
+                <li><a href="https://www.linkedin.com/in/francescoforesta" target="_blank" rel="noopener">LinkedIn</a>
+                </li>
+                <li><a href="https://byupw.instructure.com" target="_blank" rel="noopener">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7?lang=eng&id=p41#p41"
+                        target="_blank" rel="noopener">Scripture</a></li>
+                <li><a href="final-project">Final Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Francesco Foresta</h1>
+        <section class="grid">
+            <!-- LEFT CARD -->
+            <section class="card">
+                <h2 class="card-title">About Me</h2>
+
+                <div class="about">
+                    <div class="about-text">
+                        <p>
+                            I'm Francesco, learning software development with a focus on Python, C#, SQL, and web
+                            fundamentals. I build small, real projects—like a Mental Health Journal app (Python), a
+                            word-puzzle game, a JS site checker, and a responsive website—to practice OOP, databases,
+                            and clean code. I'm aiming for a junior dev role where I can ship useful web apps and
+                            automations that help people learn and work better.
+                        </p>
+
+                        <h3 class="subheading">Why Software Development?</h3>
+
+                        <div class="place stack">
+                            <figure class="life-cycle">
+                                <img src="images/sd-life-cycle.webp" width="200" height="141"
+                                    alt="Official flag of Madagascar: vertical white with red and green horizontal bands">
+                                <figcaption><em>The Life Cycle of Software Development</em></figcaption>
+                            </figure>
+
+                            <p>
+                                I chose to study software development because I love turning messy problems into simple,
+                                working solutions. After years in translation and L&D, I kept seeing chances to automate
+                                repetitive tasks, build tools that help people learn, and make processes clearer and
+                                faster. Coding gives me a way to ship those ideas—quickly, iteratively, and at scale.
+                                I'm energized by the mix of logic and creativity, the constant learning, and the chance
+                                to create real value for teams and learners through well-designed software.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-photo">
+                        <img src="images/profile.jpg" width="260" height="320" alt="Portrait of Rubia M. Francesco">
+                    </div>
+                </div>
+            </section>
+
+            <!-- RIGHT CARD -->
+            <section class="card">
+                <h2 class="card-title">Web Dev Resources</h2>
+                <ul class="links">
+                    <li><a href="https://colorhunt.co" target="_blank" rel="noopener">Colorhunt</a></li>
+                    <li><a href="https://byui-cse.github.io/wdd131-ww-course/resources/dev-standards.html" target="_blank" rel="noopener">Course Development Standards</a>
+                    </li>
+                    <li><a href="https://css-tricks.com" target="_blank" rel="noopener">CSS Tricks</a></li>
+                    <li><a href="https://www.w3schools.com" target="_blank" rel="noopener">W3 Schools</a></li>
+                    <li><a href="https://htmlreference.io" target="_blank" rel="noopener">HTML Reference</a></li>
+                    <li><a href="https://squoosh.app" target="_blank" rel="noopener">Squoosh</a></li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            &copy; <span id="currentyear"></span>
+            <span class="dot">💻</span>
+            Francesco Foresta
+            <span class="dot">💻</span>
+            Italy
+        </p>
+        <p id="lastModified" class="lastmod" aria-live="polite"></p>
+    </footer>
+</body>
+
+</html>
