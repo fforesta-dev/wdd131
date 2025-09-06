@@ -1,0 +1,27 @@
+@media (min-width: 700px) {
+    nav {
+        display: block !important;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .nav-links {
+        flex-direction: row;
+    }
+
+    header .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    main {
+        padding: 2rem 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem 3rem;
+    }
+}
