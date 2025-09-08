@@ -50,9 +50,11 @@ nav ul {
 
 nav ul li a {
     color: #fff;
-    padding: 0.5em 1em;
+    padding: 0.25em 0.5em;
     text-decoration: none;
     transition: background .2s;
+    display: inline-block;
+    border-radius: var(--radius);
 }
 
 nav ul li a:hover {
