@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Country Page | United States</title>
+    <meta name="description" content="Country facts and a simple weather card about United States.">
+    <meta name="author" content="Francesco Foresta">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>United States</h1>
+        </div>
+    </header>
+
+    <main class="container layout">
+        <picture class="hero">
+            <source srcset="images/united-states-hero-1920.webp" media="(min-width: 1920px)">
+            <source srcset="images/united-states-hero-1280.webp" media="(min-width: 1280px)">
+            <source srcset="images/united-states-hero-800.webp" media="(min-width: 800px)">
+            <img src="images/united-states-hero-480.webp" alt="A beautiful landscape showing Maroon Bells." width="480"
+                height="320">
+        </picture>
+
+        <section class="card data" aria-labelledby="data-title">
+            <h2 id="data-title">Data</h2>
+            <dl class="kv">
+                <div>
+                    <dt>Area</dt>
+                    <dd>9,833,517 km²</dd>
+                </div>
+                <div>
+                    <dt>Population</dt>
+                    <dd>~334,000,000</dd>
+                </div>
+                <div>
+                    <dt>Capital</dt>
+                    <dd>Washington, D.C.</dd>
+                </div>
+                <div>
+                    <dt>Languages</dt>
+                    <dd>English (de facto), Spanish widely spoken</dd>
+                </div>
+                <div>
+                    <dt>Currency</dt>
+                    <dd>United States Dollar (USD)</dd>
+                </div>
+                <div>
+                    <dt>Time Zones</dt>
+                    <dd>UTC−4 to UTC−10; +10, +12 (territories)</dd>
+                </div>
+                <div>
+                    <dt>Calling Code</dt>
+                    <dd>+1</dd>
+                </div>
+                <div>
+                    <dt>Internet TLD</dt>
+                    <dd>.us</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="card weather" aria-labelledby="weather-title">
+            <h2 id="weather-title" class="weather-heading">Weather</h2>
+
+            <img class="weather-svg" src="images/weather-partly-cloudy.svg" alt="Weather icon" role="presentation"
+                width="48" height="48" />
+
+            <dl class="kv">
+                <div>
+                    <dt>Temperature</dt>
+                    <dd>19°C</dd>
+                </div>
+                <div>
+                    <dt>Condition</dt>
+                    <dd>Partly Cloudy</dd>
+                </div>
+                <div>
+                    <dt>Wind</dt>
+                    <dd>5 km/h</dd>
+                </div>
+                <div>
+                    <dt>Wind Chill</dt>
+                    <dd>18°C</dd>
+                </div>
+            </dl>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            &copy; <span id="currentyear"></span>
+            <span class="dot">💻</span>
+            Francesco Foresta
+            <span class="dot">💻</span>
+            Italy
+        </p>
+        <p id="lastModified" class="lastmod" aria-live="polite"></p>
+    </footer>
+</body>
+
+</html>
