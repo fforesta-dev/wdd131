@@ -12,6 +12,8 @@
     --ribbon-overhang: 6px;
     --ribbon-length: 200px;
     --header-bar-h: 8px;
+    --footer-bg: #9b1c2b;
+    --footer-fg: #ffffff;
 }
 
 * {
@@ -57,7 +59,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
-    padding-block: 0 2rem;
+    padding-block: 0;
 }
 
 .hero {
@@ -140,12 +142,18 @@ body {
 }
 
 .site-footer {
-    background: #fff;
-    border-top: 4px solid var(--brand-red);
+    background: var(--footer-bg);
+    color: var(--footer-fg);
     text-align: center;
     padding: 1rem 0 2rem;
-    color: var(--ink-soft);
     font-size: .95rem;
+}
+
+#currentyear,
+.site-footer .dot,
+#lastModified,
+.site-footer .lastmod {
+    color: inherit;
 }
 
 .visually-hidden {
@@ -161,7 +169,6 @@ body {
 }
 
 .lastmod {
-    color: var(--accent);
     font-weight: 800;
     letter-spacing: .2px;
 }
@@ -178,7 +185,7 @@ body {
         grid-template-columns: 1fr;
         grid-template-areas: "hero";
         gap: 0;
-        padding-block: 0 2rem;
+        padding-block: 0;
     }
 
     .hero {
