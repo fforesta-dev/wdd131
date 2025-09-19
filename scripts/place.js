@@ -5,25 +5,16 @@ const lm = document.getElementById("lastModified");
 if (lm) lm.textContent = `Last Modification: ${document.lastModified}`;
 
 (function () {
-    const temperatureC = 19;
-    const windSpeedKmH = 5;
+    const temperatureF = 64;
+    const windMph = 1;
 
-    function calculateWindChill(tC, vKmH) {
-        return 13.12 + 0.6215 * tC - 11.37 * Math.pow(vKmH, 0.16) + 0.3965 * tC * Math.pow(vKmH, 0.16);
-    }
+    const calculateWindChillF = (tF, vMph) =>
+        35.74 + 0.6215 * tF - 35.75 * Math.pow(vMph, 0.16) + 0.4275 * tF * Math.pow(vMph, 0.16);
 
-    let result = 'N/A';
-    if (temperatureC <= 10 && windSpeedKmH > 4.8) {
-        result = `${calculateWindChill(temperatureC, windSpeedKmH).toFixed(1)} °C`;
-    }
+    const chillEl = document.getElementById('wind-chill');
+    const valid = temperatureF <= 50 && windMph > 3;
 
-    const windChillDD = Array.from(document.querySelectorAll('.weather dd'))
-        .find(dd => dd.textContent.trim().includes('°C') || dd.textContent.trim() === '18°C');
-    const allDT = document.querySelectorAll('.weather dt');
-    allDT.forEach(dt => {
-        if (dt.textContent.toLowerCase().includes('wind chill')) {
-            const dd = dt.nextElementSibling;
-            if (dd) dd.textContent = result;
-        }
-    });
+    chillEl.textContent = valid
+        ? `${calculateWindChillF(temperatureF, windMph).toFixed(1)} °F`
+        : 'N/A';
 })();
