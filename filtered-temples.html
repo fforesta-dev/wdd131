@@ -36,7 +36,10 @@
     <main>
         <h1 id="page-title">Filtered Temples Album</h1>
         <h2 id="filter-label">My Favorite Temples</h2>
-        <section id="gallery" class="gallery" aria-live="polite" aria-busy="false" tabindex="-1"></section>
+        <section id="temple-gallery" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading" class="visually-hidden">Filtered Temples Album</h2>
+            <div id="gallery" class="gallery" aria-live="polite" aria-busy="false" tabindex="-1"></div>
+        </section>
         <noscript>
             <p>Enable JavaScript to view the temple cards.</p>
         </noscript>
