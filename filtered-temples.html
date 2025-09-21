@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Temples Album</title>
+    <meta name="description"
+        content="WDD 131 – Dynamic Web Fundamentals | Francesco Foresta | A filtered Photo Album of my favorite Temples in the world.">
+    <meta name="author" content="Francesco Foresta">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Noto+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <script src="scripts/filtered-temples.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <span class="site-title">Filtered Temples Album</span>
+            <button class="hamburger" aria-label="Menu" aria-controls="primary-nav"
+                aria-expanded="false">&#9776;</button>
+            <nav id="primary-nav" aria-label="Temple filters">
+                <ul class="nav-links">
+                    <li><button type="button" data-filter="home" class="active" aria-pressed="true">Home</button></li>
+                    <li><button type="button" data-filter="old">Old</button></li>
+                    <li><button type="button" data-filter="new">New</button></li>
+                    <li><button type="button" data-filter="large">Large</button></li>
+                    <li><button type="button" data-filter="small">Small</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1 id="page-title">Filtered Temples Album</h1>
+        <h2 id="filter-label">My Favorite Temples</h2>
+        <section id="gallery" class="gallery" aria-live="polite" aria-busy="false" tabindex="-1"></section>
+        <noscript>
+            <p>Enable JavaScript to view the temple cards.</p>
+        </noscript>
+    </main>
+    <footer class="site-footer">
+        <p>
+            &copy; <span id="currentyear"></span>
+            <span class="dot">💻</span>
+            Francesco Foresta
+            <span class="dot">💻</span>
+            Italy
+        </p>
+        <p id="lastModified" class="lastmod" aria-live="polite"></p>
+    </footer>
+</body>
+
+</html>
