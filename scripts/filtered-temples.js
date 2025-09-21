@@ -100,27 +100,28 @@ const FILTERS = {
     small: () => temples.filter(t => t.area < 10000)
 };
 
-function setActive(btn) {
-    document.querySelectorAll("nav button").forEach(b => {
-        const active = b === btn;
+function setActive(el) {
+    document.querySelectorAll("nav [data-filter]").forEach(b => {
+        const active = b === el;
         b.classList.toggle("active", active);
         b.setAttribute("aria-pressed", String(active));
     });
 }
 
 function initFilters() {
-    document.querySelectorAll("nav button").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const key = btn.dataset.filter;
+    document.querySelectorAll("nav [data-filter]").forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault(); // don't jump to top
+            const key = link.dataset.filter;
             const next = (FILTERS[key] ?? FILTERS.home)();
-            setActive(btn);
+            setActive(link);
             render(next);
             gallery?.focus();
         });
     });
 
-    const firstBtn = document.querySelector('nav button[data-filter="home"]') || document.querySelector('nav button');
-    if (firstBtn) setActive(firstBtn);
+    const first = document.querySelector('nav [data-filter="home"]') || document.querySelector('nav [data-filter]');
+    if (first) setActive(first);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
