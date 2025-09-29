@@ -160,7 +160,7 @@ a:hover {
     background: var(--neutral)
 }
 
-.swatch .label {
+.swatch figcaption {
     padding: .5rem .75rem
 }
 
@@ -206,8 +206,11 @@ figcaption {
 }
 
 .wire {
-    background: repeating-conic-gradient(from 45deg, #f9fafb 0 12px, #f3f4f6 12px 24px);
+    background-color: #f3f4f6;
+    background-image: repeating-linear-gradient(45deg,
+            #f9fafb 0 12px,
+            #f3f4f6 12px 24px);
     border-radius: 14px;
     border: 1px solid #e5e7eb;
-    padding: 1rem
+    padding: 1rem;
 }
