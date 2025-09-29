@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Website Planning Document — Book of Mormon Names Explorer</title>
+    <meta name="description"
+        content="Site plan for 'Book of Mormon Names Explorer': purpose, scenarios, color & typography, wireframes, and pages for the final project.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/siteplan.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <a class="brand" href="#">
+                <img src="images/logo.webp" alt="Book of Mormon Names Explorer logo" width="420" height="115"
+                    decoding="async">
+            </a>
+            <h1>Book of Mormon Names Explorer</h1>
+        </div>
+    </header>
+
+    <main class="wrap" id="top">
+        <section id="site-name">
+            <h2>Site Name</h2>
+            <p><strong>Book of Mormon Names Explorer</strong></p>
+            <p class="meta">Why: clearly communicates a searchable, study-friendly explorer of Book of Mormon names,
+                places, and terms. Optional domain: <code>bom-names-explorer.net</code>.</p>
+        </section>
+
+        <section id="purpose">
+            <h2>Site Purpose</h2>
+            <p>A searchable, interactive glossary of Book of Mormon names, places, and key terms. Users can type a name
+                to see a short description, scripture references, and pronunciation tips. Favorites are saved for quick
+                review.</p>
+        </section>
+
+        <section id="scenarios">
+            <h2>Scenarios</h2>
+            <ul>
+                <li>“Who is <em>Alma the Younger</em> and where is he mentioned?”</li>
+                <li>“How do I pronounce <em>Zarahemla</em> and what does it refer to?”</li>
+            </ul>
+        </section>
+
+
+        <section id="colors">
+            <h2>Color Schema</h2>
+            <div class="swatches">
+                <div class="swatch" aria-label="Primary Indigo">
+                    <div class="chip primary"></div>
+                    <div class="label"><strong>#1E40AF</strong> — headings, nav, emphasis</div>
+                </div>
+                <div class="swatch" aria-label="Accent Amber">
+                    <div class="chip accent"></div>
+                    <div class="label"><strong>#F59E0B</strong> — buttons, highlights</div>
+                </div>
+                <div class="swatch" aria-label="Neutral BG">
+                    <div class="chip neutral"></div>
+                    <div class="label"><strong>#F3F4F6</strong> — page background</div>
+                </div>
+            </div>
+            <p class="meta">This document uses the schema above, per the assignment.</p>
+        </section>
+
+        <section id="typography">
+            <h2>Typography</h2>
+            <ul>
+                <li><strong>Headings:</strong> Merriweather, serif (700)</li>
+                <li><strong>Body/UI:</strong> Inter, sans-serif (400/600)</li>
+            </ul>
+            <div class="font-samples">
+                <div class="sample merri">
+                    <h3>Heading sample — Merriweather 700</h3>
+                </div>
+                <div class="sample inter">
+                    <p>Body sample — Inter 400/600 for UI text.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="wireframes">
+            <h2>Wireframes (Home Page)</h2>
+            <div class="two">
+                <figure class="wire">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 690" width="100%" role="img"
+                        aria-label="Mobile wireframe">
+                        <title>Mobile wireframe</title>
+                        <rect x="0" y="0" width="360" height="72" fill="#dbeafe" stroke="#93c5fd" />
+                        <text x="16" y="44" font-family="Inter, Arial, sans-serif" font-size="14">1) Header / Nav /
+                            Brand</text>
+
+                        <rect x="16" y="88" width="328" height="110" fill="#fee2e2" stroke="#fecaca" />
+                        <text x="24" y="148" font-family="Inter, Arial, sans-serif" font-size="13">2) Hero /
+                            Intro</text>
+
+                        <rect x="16" y="210" width="328" height="110" fill="#dcfce7" stroke="#86efac" />
+                        <text x="24" y="270" font-family="Inter, Arial, sans-serif" font-size="13">3) Featured
+                            Names</text>
+
+                        <rect x="16" y="332" width="328" height="150" fill="#fde68a" stroke="#facc15" />
+                        <text x="24" y="392" font-family="Inter, Arial, sans-serif" font-size="13">4a) Explorer — Search
+                            &amp; Filters</text>
+
+                        <rect x="16" y="494" width="328" height="120" fill="#fef3c7" stroke="#fde68a" />
+                        <text x="24" y="554" font-family="Inter, Arial, sans-serif" font-size="13">4b) Explorer —
+                            Results List/Grid</text>
+
+                        <rect x="0" y="630" width="360" height="50" fill="#e5e7eb" stroke="#cbd5e1" />
+                        <text x="16" y="660" font-family="Inter, Arial, sans-serif" font-size="13">5) Footer (References
+                            link)</text>
+                    </svg>
+                    <figcaption>Mobile (≤ 480 px)</figcaption>
+                </figure>
+
+                <figure class="wire">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="100%" role="img"
+                        aria-label="Desktop wireframe">
+                        <title>Desktop wireframe</title>
+                        <rect x="0" y="0" width="980" height="90" fill="#dbeafe" stroke="#93c5fd" />
+                        <text x="24" y="54" font-family="Inter, Arial, sans-serif" font-size="14">1) Header / Nav /
+                            Brand</text>
+
+                        <rect x="20" y="110" width="940" height="120" fill="#fee2e2" stroke="#fecaca" />
+                        <text x="32" y="180" font-family="Inter, Arial, sans-serif" font-size="13">2) Hero /
+                            Intro</text>
+
+                        <rect x="20" y="240" width="940" height="110" fill="#dcfce7" stroke="#86efac" />
+                        <text x="32" y="305" font-family="Inter, Arial, sans-serif" font-size="13">3) Featured Names
+                            (cards row)</text>
+
+                        <rect x="20" y="360" width="300" height="150" fill="#fde68a" stroke="#facc15" />
+                        <text x="28" y="430" font-family="Inter, Arial, sans-serif" font-size="13">4a) Explorer — Search
+                            &amp; Filters</text>
+
+                        <rect x="340" y="360" width="620" height="150" fill="#fef3c7" stroke="#fde68a" />
+                        <text x="348" y="430" font-family="Inter, Arial, sans-serif" font-size="13">4b) Explorer —
+                            Results List/Grid</text>
+
+                        <rect x="0" y="520" width="980" height="40" fill="#e5e7eb" stroke="#cbd5e1" />
+                        <text x="24" y="545" font-family="Inter, Arial, sans-serif" font-size="13">5) Footer (References
+                            link)</text>
+                    </svg>
+                    <figcaption>Desktop (≥ 980 px)</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
