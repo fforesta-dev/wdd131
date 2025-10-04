@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Review Form</title>
+    <meta name="description" content="Please leave us a honest review by leaving a 1-5 rating.">
+    <meta name="author" content="Francesco Foresta">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+    <h1 class="page-title">Product Review Form</h1>
+
+    <main>
+        <form class="wf1" method="get" action="review.html" autocomplete="on">
+            <fieldset>
+                <legend>Product Details</legend>
+
+                <label for="product" class="required">Product Name</label>
+                <select id="product" name="product" required>
+                    <option value="" selected disabled>Select a Product … ▾</option>
+                </select>
+
+                <label class="required">Overall Rating</label>
+                <div class="rating" role="radiogroup" aria-label="Overall Rating (1 to 5)">
+                    <input type="radio" id="rating5" name="rating" value="5" required>
+                    <label for="rating5" aria-label="5 stars" title="5 stars"></label>
+
+                    <input type="radio" id="rating4" name="rating" value="4">
+                    <label for="rating4" aria-label="4 stars" title="4 stars"></label>
+
+                    <input type="radio" id="rating3" name="rating" value="3">
+                    <label for="rating3" aria-label="3 stars" title="3 stars"></label>
+
+                    <input type="radio" id="rating2" name="rating" value="2">
+                    <label for="rating2" aria-label="2 stars" title="2 stars"></label>
+
+                    <input type="radio" id="rating1" name="rating" value="1">
+                    <label for="rating1" aria-label="1 star" title="1 star"></label>
+                </div>
+
+                <label for="installed" class="required">Date of Installation</label>
+                <input type="date" id="installed" name="installed" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Useful Features (check all that apply)</legend>
+
+                <label class="check">
+                    <input type="checkbox" name="features" value="durability"> Durability
+                </label>
+                <label class="check">
+                    <input type="checkbox" name="features" value="ease-of-use"> Ease of Use
+                </label>
+                <label class="check">
+                    <input type="checkbox" name="features" value="performance"> Performance
+                </label>
+                <label class="check">
+                    <input type="checkbox" name="features" value="design"> Design
+                </label>
+                <label class="check">
+                    <input type="checkbox" name="features" value="value"> Value for Money
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your Review (optional)</legend>
+
+                <label for="review">Written Review</label>
+                <textarea id="review" name="review" rows="6" placeholder="Share your experience…"></textarea>
+
+                <label for="user">Your Name</label>
+                <input type="text" id="user" name="user" inputmode="text" placeholder="(Optional)">
+            </fieldset>
+
+            <div class="actions">
+                <input type="submit" value="Post my review">
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <p>Copyright © Francesco Foresta | All rights reserved</p>
+    </footer>
+</body>
+
+</html>
