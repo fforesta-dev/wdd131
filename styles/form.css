@@ -13,16 +13,18 @@
     --border-strong-hi: #6E87B4;
     --icon: #EEF3FB;
     --shadow: 0 8px 24px rgba(0, 0, 0, .35);
+    --link: #90acff;
+    --warn: #ff8f8f;
 }
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html,
 body {
     margin: 0;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 body {
@@ -33,7 +35,7 @@ body {
 }
 
 a {
-    color: var(--brand)
+    color: var(--link);
 }
 
 .page-title {
@@ -44,7 +46,7 @@ a {
 }
 
 main {
-    padding: 1rem
+    padding: 1rem;
 }
 
 .wf1 {
@@ -66,20 +68,20 @@ fieldset {
 
 legend {
     padding: 0 .5rem;
-    color: var(--brand);
-    font-weight: 700
+    font-weight: 700;
+    color: var(--link);
 }
 
 label {
     display: block;
     font-weight: 600;
-    margin-top: .75rem
+    margin-top: .75rem;
 }
 
 label.required::after {
     content: " *";
     color: var(--warn);
-    font-weight: 700
+    font-weight: 700;
 }
 
 .wf1 input[type="text"],
@@ -105,7 +107,7 @@ label.required::after {
 .wf1 input[type="date"]:hover,
 .wf1 select:hover,
 .wf1 textarea:hover {
-    border-color: var(--border-strong)
+    border-color: var(--border-strong);
 }
 
 .wf1 input[type="text"]:focus,
@@ -113,17 +115,17 @@ label.required::after {
 .wf1 select:focus,
 .wf1 textarea:focus {
     border-color: var(--brand);
-    box-shadow: 0 0 0 3px rgba(79, 124, 255, .28)
+    box-shadow: 0 0 0 3px rgba(79, 124, 255, .28);
 }
 
 .wf1 ::placeholder {
     color: #C8D3E8;
-    opacity: 1
+    opacity: 1;
 }
 
 .wf1 textarea {
     min-height: 120px;
-    resize: vertical
+    resize: vertical;
 }
 
 .wf1 input[type="date"] {
@@ -142,31 +144,31 @@ label.required::after {
 
 .wf1 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
-    cursor: pointer
+    cursor: pointer;
 }
 
 @media (forced-colors:active) {
     .wf1 input[type="date"] {
         background-image: none;
-        padding-right: .8rem
+        padding-right: .8rem;
     }
 
     .wf1 input[type="date"]::-webkit-calendar-picker-indicator {
-        opacity: 1
+        opacity: 1;
     }
 }
 
 .wf1 input[type="checkbox"],
 .wf1 input[type="radio"] {
     margin-right: .5rem;
-    accent-color: var(--brand)
+    accent-color: var(--brand);
 }
 
 .check {
     display: flex;
     align-items: center;
     margin-top: .5rem;
-    font-weight: 500
+    font-weight: 500;
 }
 
 .rating {
@@ -178,7 +180,7 @@ label.required::after {
 
 .rating input {
     position: absolute;
-    left: -9999px
+    left: -9999px;
 }
 
 .rating label {
@@ -198,62 +200,62 @@ label.required::after {
 
 .rating label::before {
     content: "★";
-    font-size: 1.25rem
+    font-size: 1.25rem;
 }
 
 .rating label:nth-of-type(1)::after {
     content: " 5";
     font-size: .9rem;
-    opacity: .9
+    opacity: .9;
 }
 
 .rating label:nth-of-type(2)::after {
     content: " 4";
     font-size: .9rem;
-    opacity: .9
+    opacity: .9;
 }
 
 .rating label:nth-of-type(3)::after {
     content: " 3";
     font-size: .9rem;
-    opacity: .9
+    opacity: .9;
 }
 
 .rating label:nth-of-type(4)::after {
     content: " 2";
     font-size: .9rem;
-    opacity: .9
+    opacity: .9;
 }
 
 .rating label:nth-of-type(5)::after {
     content: " 1";
     font-size: .9rem;
-    opacity: .9
+    opacity: .9;
 }
 
 .rating input:checked~label,
 .rating label:hover,
 .rating label:hover~label {
     filter: none;
-    border-color: var(--border-strong)
+    border-color: var(--border-strong);
 }
 
 .rating input:focus+label {
-    outline: 2px solid var(--brand)
+    outline: 2px solid var(--brand);
 }
 
 .wf1 input:required,
 .wf1 select:required {
-    border-left: 6px solid #8aa0c5
+    border-left: 6px solid #8aa0c5;
 }
 
 .wf1 input:required:valid,
 .wf1 select:required:valid {
-    border-left-color: var(--good)
+    border-left-color: var(--good);
 }
 
 .actions {
-    margin-top: 1rem
+    margin-top: 1rem;
 }
 
 input[type="submit"] {
@@ -273,11 +275,11 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    filter: brightness(1.05)
+    filter: brightness(1.05);
 }
 
 input[type="submit"]:active {
-    transform: translateY(1px)
+    transform: translateY(1px);
 }
 
 .site-footer {
@@ -289,30 +291,30 @@ input[type="submit"]:active {
 
 @media (max-width:420px) {
     .wf1 {
-        padding: .875rem
+        padding: .875rem;
     }
 
     fieldset {
-        padding: .875rem
+        padding: .875rem;
     }
 
     .rating label {
         width: 40px;
-        height: 40px
+        height: 40px;
     }
 
     .rating label::before {
-        font-size: 1.1rem
+        font-size: 1.1rem;
     }
 }
 
 @media (min-width:900px) {
     main {
-        padding: 2rem
+        padding: 2rem;
     }
 
     .page-title {
-        font-size: 1.8rem
+        font-size: 1.8rem;
     }
 }
 
@@ -328,7 +330,7 @@ input[type="submit"]:active {
 
 .kv {
     display: grid;
-    gap: .35rem
+    gap: .35rem;
 }
 
 .kv div {
@@ -342,7 +344,7 @@ input[type="submit"]:active {
     display: block;
     color: #b9c7e2;
     font-weight: 700;
-    margin-bottom: .1rem
+    margin-bottom: .1rem;
 }
 
 .counter {
