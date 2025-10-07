@@ -51,6 +51,7 @@
             <label class="visually-hidden" for="q">Search names</label>
             <input id="q" type="search" placeholder="Search by name, description, or reference…" autocomplete="off"
                 aria-describedby="count">
+
             <label class="visually-hidden" for="type">Filter type</label>
             <select id="type">
                 <option value="all">All types</option>
@@ -58,7 +59,8 @@
                 <option value="place">Place</option>
                 <option value="term">Term</option>
             </select>
-            <label><input id="only-favs" type="checkbox"> Favorites only</label>
+
+            <label class="favs"><input id="only-favs" type="checkbox"> Favorites only</label>
         </div>
 
         <p id="count" class="meta" aria-live="polite">0 results</p>
