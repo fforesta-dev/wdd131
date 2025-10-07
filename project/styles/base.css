@@ -1,0 +1,528 @@
+/* =========================================================
+   0) Design tokens (light) – all color + spacing variables
+   ========================================================= */
+:root {
+    --primary: #1E40AF;
+    /* header bar indigo */
+    --accent: #F59E0B;
+    /* amber CTA fill */
+    --neutral: #F3F4F6;
+    /* page bg (light) */
+    --ink: #0F172A;
+    /* body text (light) */
+    --muted: #334155;
+    /* muted text (light) */
+    --link: #1E3A8A;
+    /* links (light) */
+    --link-hover: #172554;
+
+    --surface: #FFFFFF;
+    /* card/input surface (light) */
+    --border: #E5E7EB;
+    /* card/input border (light) */
+
+    /* AAA-safe pale amber if you ever need small amber text on the bar */
+    --brand-amber-aaa: #FFEDB5;
+    /* 7.49:1 on #1E40AF */
+}
+
+/* =========================================================
+   1) Global reset / base
+   ========================================================= */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--neutral);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 1.25rem 0 .75rem;
+}
+
+a {
+    color: var(--link);
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+.wrap {
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
+/* =========================================================
+   2) Header (siteplan: top row = logo+nav, second row = title)
+   ========================================================= */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, var(--primary), #0b2569);
+    color: #fff;
+    border-bottom: 6px solid var(--accent);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .04);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .75rem 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.brand img {
+    height: 48px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.page-title {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+    line-height: 1.2;
+    color: #fff;
+    margin: .35rem 0 .6rem;
+}
+
+/* Header nav – AAA on the bar and readable hover */
+.site-header nav a {
+    color: #E5E7EB;
+    font-weight: 600;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+    color: #FFFFFF;
+}
+
+nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: .75rem 0 0;
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+@media (max-width:720px) {
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: .25rem;
+    }
+
+    .brand img {
+        height: 40px;
+    }
+}
+
+/* =========================================================
+   3) Main layout + common components
+   ========================================================= */
+main {
+    padding: 1.25rem 0 3rem;
+}
+
+/* Cards / grids */
+.card-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width:760px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(2, 6, 23, .05);
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.card .pad {
+    padding: .9rem;
+}
+
+/* Buttons – AA/AAA for light & dark, covers <a> and <button> */
+.btn,
+.btn:link,
+.btn:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    border-radius: 999px;
+    padding: .45rem .8rem;
+    cursor: pointer;
+    background: #FFFFFF;
+    color: #0F172A;
+    border: 1px solid #d6d3d1;
+    /* AAA on light */
+}
+
+.btn:hover {
+    background: #F8F8F8;
+}
+
+.btn.primary,
+.btn.primary:link,
+.btn.primary:visited {
+    background: var(--accent);
+    border-color: #fbbf24;
+    color: #0B1220;
+    /* dark text on amber; ~8.3:1 AAA */
+}
+
+.btn.primary:hover {
+    filter: brightness(.96);
+}
+
+.btn[aria-pressed="true"] {
+    outline: 2px solid var(--accent);
+}
+
+/* Forms */
+fieldset {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: .25rem 0;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: .55rem .65rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+}
+
+form .row {
+    display: grid;
+    gap: .75rem;
+}
+
+@media (min-width:640px) {
+    form .row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Notices */
+.notice {
+    border-left: 6px solid var(--accent);
+    background: #FFF7ED;
+    padding: .75rem 1rem;
+    border-radius: 8px;
+}
+
+/* =========================================================
+   4) Theme toggle (switch + caption + icon)
+   ========================================================= */
+.switch-input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+.switch {
+    display: inline-block;
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: #cbd5e1;
+    position: relative;
+    border: 1px solid #94a3b8;
+    cursor: pointer;
+}
+
+.switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    transition: left .2s;
+}
+
+#theme-toggle:checked+.switch {
+    background: #0f172a;
+}
+
+#theme-toggle:checked+.switch::after {
+    left: 22px;
+}
+
+#theme-toggle:focus-visible+.switch {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.theme {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.toggle-caption {
+    color: #E5E7EB;
+    font-weight: 600;
+}
+
+.icon {
+    display: inline-block;
+    width: 1.1em;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1;
+    color: #E5E7EB;
+}
+
+.icon::before {
+    content: "🌞";
+}
+
+#theme-toggle:checked~.icon::before {
+    content: "🌙";
+}
+
+/* =========================================================
+   5) Explorer layouts + results
+   ========================================================= */
+/* Quick Explorer (Home preview) */
+.explorer-preview .explorer-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width:980px) {
+    .explorer-preview .explorer-grid {
+        grid-template-columns: 300px 1fr;
+    }
+}
+
+.explorer-side {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.results {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width:700px) {
+    .results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width:1100px) {
+    .results {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.result-title {
+    margin: .25rem 0 .5rem;
+    font-size: 1.1rem;
+}
+
+.result-desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: .95rem;
+}
+
+/* =========================================================
+   6) Footer
+   ========================================================= */
+footer {
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* =========================================================
+   7) Dark theme overrides (html[data-theme="dark"])
+   ========================================================= */
+[data-theme="dark"] {
+    --neutral: #0B1220;
+    /* page bg (dark) */
+    --ink: #E5E7EB;
+    /* body text (dark) */
+    --muted: #94A3B8;
+    /* muted text (dark) */
+    --link: #93C5FD;
+    /* links (dark) */
+    --link-hover: #BFDBFE;
+    --surface: #0F172A;
+    /* cards/inputs (dark) */
+    --border: #1F2937;
+    /* borders (dark) */
+
+    /* stronger muted for small descriptions on dark surfaces */
+    --muted-strong: #E2E8F0;
+    /* ~10.8:1 on #0F172A (AAA) */
+}
+
+[data-theme="dark"] body {
+    color: var(--ink);
+    background: var(--neutral);
+}
+
+[data-theme="dark"] header.site-header {
+    box-shadow: 0 2px 0 rgba(0, 0, 0, .35);
+}
+
+/* Dark buttons – enforce contrast for <a> and <button> */
+[data-theme="dark"] .btn,
+[data-theme="dark"] .btn:link,
+[data-theme="dark"] .btn:visited {
+    background: #1F2937;
+    border-color: #334155;
+    color: #E5E7EB;
+    /* ~8.7:1 AAA */
+}
+
+[data-theme="dark"] .btn:hover {
+    background: #273449;
+}
+
+[data-theme="dark"] .btn.primary,
+[data-theme="dark"] .btn.primary:link,
+[data-theme="dark"] .btn.primary:visited {
+    background: var(--accent);
+    color: #0B1220;
+    border-color: #eab308;
+    /* ~8.3:1 AAA */
+}
+
+[data-theme="dark"] .btn.primary:hover {
+    filter: brightness(.94);
+}
+
+/* Components on dark surfaces */
+[data-theme="dark"] section,
+[data-theme="dark"] .card,
+[data-theme="dark"] .result {
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: none;
+}
+
+[data-theme="dark"] .card img {
+    background: #111827;
+}
+
+[data-theme="dark"] .notice {
+    background: #1f2937;
+    border-left-color: var(--accent);
+    color: var(--ink);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background: #111827;
+    color: var(--ink);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] ::placeholder {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] footer {
+    color: #64748b;
+}
+
+/* Explorer on dark */
+[data-theme="dark"] .explorer-side {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .result-desc {
+    color: var(--muted-strong);
+}

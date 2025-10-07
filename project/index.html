@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book of Mormon Names Explorer — Home</title>
+    <meta name="description"
+        content="Explore Book of Mormon names with featured entries, study tips, and a form to suggest additions.">
+    <meta name="author" content="Francesco Foresta">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <script type="module" src="scripts/app.js"></script>
+    <script type="module">
+        import { saveFeedback } from './scripts/storage.js';
+        const form = document.getElementById('suggest-form');
+        const status = document.getElementById('form-status');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            const payload = Object.fromEntries(data.entries());
+            if (!payload.name || !payload.email || !payload.entryName || !payload.entryType || !payload.message) {
+                status.textContent = "Please complete all required fields.";
+                return;
+            }
+            saveFeedback({ ...payload, ts: new Date().toISOString() });
+            form.reset();
+            status.textContent = "Thanks! Your suggestion was saved locally.";
+        });
+    </script>
+    <script type="module">
+        import { NAMES } from './scripts/names.js'; // uses your data array
+        const q = document.getElementById('q-home');
+        const out = document.getElementById('home-results');
+
+        const tpl = (n) => `
+    <article class="result card">
+      <div class="pad">
+        <h3 class="result-title">${n.name}</h3>
+        <p class="result-desc">${n.desc}</p>
+      </div>
+    </article>`;
+
+        function render(list) {
+            const slice = list.slice(0, 8);
+            out.innerHTML = slice.length
+                ? slice.map(tpl).join('')
+                : `<p class="meta">No matches. Try a different name.</p>`;
+        }
+
+        function search() {
+            const term = q.value.trim().toLowerCase();
+            const filtered = term
+                ? NAMES.filter(n => n.name.toLowerCase().includes(term))
+                : NAMES; // default: show some entries
+            render(filtered);
+        }
+
+        q.addEventListener('input', search);
+        search(); // initial render
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="wrap header-top">
+            <a class="brand" href="index.html" aria-label="Book of Mormon Names Explorer">
+                <img src="images/logo.webp" alt="" width="420" height="115" decoding="async">
+                <span class="visually-hidden">Book of Mormon Names Explorer</span>
+            </a>
+
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="explorer.html">Explorer</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li class="theme">
+                        <input id="theme-toggle" type="checkbox" class="switch-input" aria-label="Toggle dark mode">
+                        <label for="theme-toggle" class="switch" title="Toggle dark mode"></label>
+                        <span class="icon" aria-hidden="true"></span>
+                        <span class="toggle-caption">Dark mode</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrap">
+            <h1 class="page-title">Home</h1>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <div>
+                <p>Search people and places, see references and pronunciations, and save favorites for review.</p>
+                <p><a class="btn primary" href="explorer.html">Open the Explorer</a></p>
+            </div>
+            <div>
+                <img src="images/hero.webp" alt="Open scriptures with notes and highlights" width="800" height="520"
+                    loading="eager" decoding="async">
+            </div>
+        </section>
+
+        <section>
+            <h2>Featured names</h2>
+            <div id="featured" class="card-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="home-explorer" class="explorer-preview">
+            <h2>Quick Explorer</h2>
+            <div class="explorer-grid">
+                <!-- Left: search/filters -->
+                <aside class="explorer-side">
+                    <label for="q-home">Search names</label>
+                    <input id="q-home" name="q-home" placeholder="Type a name…">
+                    <p class="meta">Try: Alma, Moroni, Zarahemla…</p>
+                    <p><a class="btn" href="explorer.html">Open full Explorer</a></p>
+                </aside>
+
+                <!-- Right: results -->
+                <div>
+                    <div id="home-results" class="results" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Suggest a name</h2>
+            <p class="notice">Use this form to suggest an entry we should add. We’ll review your suggestion.</p>
+            <form id="suggest-form" novalidate>
+                <div class="row">
+                    <div>
+                        <label for="your-name">Your Name</label>
+                        <input id="your-name" name="name" required autocomplete="name">
+                    </div>
+                    <div>
+                        <label for="your-email">Email</label>
+                        <input id="your-email" name="email" type="email" required autocomplete="email"
+                            inputmode="email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <label for="entry-name">Entry Name</label>
+                        <input id="entry-name" name="entryName" required>
+                    </div>
+                    <div>
+                        <label for="entry-type">Type</label>
+                        <select id="entry-type" name="entryType" required>
+                            <option value="">Select…</option>
+                            <option value="person">Person</option>
+                            <option value="place">Place</option>
+                            <option value="term">Term</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="message">Why should we add it?</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <p>
+                    <button class="btn" type="submit">Send suggestion</button>
+                </p>
+                <p id="form-status" class="meta" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 — Book of Mormon Names Explorer · <a href="references.html">References</a></p>
+    </footer>
+
+
+</body>
+
+</html>
