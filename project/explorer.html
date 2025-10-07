@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book of Mormon Names Explorer — Explorer</title>
+    <meta name="description"
+        content="Live search of Book of Mormon names with filters, references, and pronunciations. Save favorites with one click.">
+    <meta name="author" content="Francesco Foresta">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <script type="module" src="scripts/app.js"></script>
+    <script type="module" src="scripts/explorer.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="wrap header-top">
+            <a class="brand" href="index.html" aria-label="Book of Mormon Names Explorer">
+                <img src="images/logo.webp" alt="" width="420" height="115" decoding="async">
+                <span class="visually-hidden">Book of Mormon Names Explorer</span>
+            </a>
+
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="explorer.html" aria-current="page">Explorer</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li class="theme">
+                        <input id="theme-toggle" type="checkbox" class="switch-input" aria-label="Toggle dark mode">
+                        <label for="theme-toggle" class="switch" title="Toggle dark mode"></label>
+                        <span class="icon" aria-hidden="true"></span>
+                        <span class="toggle-caption">Dark mode</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrap">
+            <h1 class="page-title">Explorer</h1>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="search-bar" role="search">
+            <label class="visually-hidden" for="q">Search names</label>
+            <input id="q" type="search" placeholder="Search by name, description, or reference…" autocomplete="off"
+                aria-describedby="count">
+            <label class="visually-hidden" for="type">Filter type</label>
+            <select id="type">
+                <option value="all">All types</option>
+                <option value="person">Person</option>
+                <option value="place">Place</option>
+                <option value="term">Term</option>
+            </select>
+            <label><input id="only-favs" type="checkbox"> Favorites only</label>
+        </div>
+
+        <p id="count" class="meta" aria-live="polite">0 results</p>
+        <ul id="results" class="results" aria-live="polite"></ul>
+    </main>
+
+    <footer>
+        <p>© 2025 — Book of Mormon Names Explorer · <a href="references.html">References</a></p>
+    </footer>
+
+</body>
+
+</html>
