@@ -1,34 +1,16 @@
-/* =========================================================
-   0) Design tokens (light) – all color + spacing variables
-   ========================================================= */
 :root {
     --primary: #1E40AF;
-    /* header bar indigo */
     --accent: #F59E0B;
-    /* amber CTA fill */
     --neutral: #F3F4F6;
-    /* page bg (light) */
     --ink: #0F172A;
-    /* body text (light) */
     --muted: #334155;
-    /* muted text (light) */
     --link: #1E3A8A;
-    /* links (light) */
     --link-hover: #172554;
-
     --surface: #FFFFFF;
-    /* card/input surface (light) */
     --border: #E5E7EB;
-    /* card/input border (light) */
-
-    /* AAA-safe pale amber if you ever need small amber text on the bar */
     --brand-amber-aaa: #FFEDB5;
-    /* 7.49:1 on #1E40AF */
 }
 
-/* =========================================================
-   1) Global reset / base
-   ========================================================= */
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -84,9 +66,6 @@ a:hover {
     white-space: nowrap;
 }
 
-/* =========================================================
-   2) Header (siteplan: top row = logo+nav, second row = title)
-   ========================================================= */
 .site-header {
     position: sticky;
     top: 0;
@@ -128,7 +107,6 @@ a:hover {
     margin: .35rem 0 .6rem;
 }
 
-/* Header nav – AAA on the bar and readable hover */
 .site-header nav a {
     color: #E5E7EB;
     font-weight: 600;
@@ -166,16 +144,25 @@ nav ul {
     .brand img {
         height: 40px;
     }
+
+    #q {
+        flex-basis: 100%;
+        min-width: 0;
+    }
+
+    #type {
+        flex-basis: 100%;
+    }
+
+    .search-bar .favs {
+        flex-basis: 100%;
+    }
 }
 
-/* =========================================================
-   3) Main layout + common components
-   ========================================================= */
 main {
     padding: 1.25rem 0 3rem;
 }
 
-/* Cards / grids */
 .card-grid {
     display: grid;
     gap: 1rem;
@@ -208,7 +195,6 @@ main {
     padding: .9rem;
 }
 
-/* Buttons – AA/AAA for light & dark, covers <a> and <button> */
 .btn,
 .btn:link,
 .btn:visited {
@@ -221,7 +207,6 @@ main {
     background: #FFFFFF;
     color: #0F172A;
     border: 1px solid #d6d3d1;
-    /* AAA on light */
 }
 
 .btn:hover {
@@ -234,7 +219,6 @@ main {
     background: var(--accent);
     border-color: #fbbf24;
     color: #0B1220;
-    /* dark text on amber; ~8.3:1 AAA */
 }
 
 .btn.primary:hover {
@@ -245,7 +229,6 @@ main {
     outline: 2px solid var(--accent);
 }
 
-/* Forms */
 fieldset {
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -279,7 +262,6 @@ form .row {
     }
 }
 
-/* Notices */
 .notice {
     border-left: 6px solid var(--accent);
     background: #FFF7ED;
@@ -287,9 +269,6 @@ form .row {
     border-radius: 8px;
 }
 
-/* =========================================================
-   4) Theme toggle (switch + caption + icon)
-   ========================================================= */
 .switch-input {
     position: absolute;
     inline-size: 1px;
@@ -364,10 +343,59 @@ form .row {
     content: "🌙";
 }
 
-/* =========================================================
-   5) Explorer layouts + results
-   ========================================================= */
-/* Quick Explorer (Home preview) */
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+#q {
+    flex: 1 1 360px;
+    min-width: 220px;
+    width: 100%;
+}
+
+#type {
+    flex: 0 1 280px;
+    min-width: 220px;
+}
+
+.search-bar>label:last-of-type {
+    grid-area: fav;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+#only-favs {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+.search-bar .favs {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+@media (min-width: 720px) {
+    .search-bar {
+        grid-template-columns: minmax(220px, 360px) auto 1fr;
+        grid-template-areas:
+            "q    q    q"
+            "type fav  .";
+    }
+}
+
 .explorer-preview .explorer-grid {
     display: grid;
     gap: 1rem;
@@ -414,36 +442,21 @@ form .row {
     font-size: .95rem;
 }
 
-/* =========================================================
-   6) Footer
-   ========================================================= */
 footer {
     color: #94a3b8;
     text-align: center;
     padding: 2rem 1rem;
 }
 
-/* =========================================================
-   7) Dark theme overrides (html[data-theme="dark"])
-   ========================================================= */
 [data-theme="dark"] {
     --neutral: #0B1220;
-    /* page bg (dark) */
     --ink: #E5E7EB;
-    /* body text (dark) */
     --muted: #94A3B8;
-    /* muted text (dark) */
     --link: #93C5FD;
-    /* links (dark) */
     --link-hover: #BFDBFE;
     --surface: #0F172A;
-    /* cards/inputs (dark) */
     --border: #1F2937;
-    /* borders (dark) */
-
-    /* stronger muted for small descriptions on dark surfaces */
     --muted-strong: #E2E8F0;
-    /* ~10.8:1 on #0F172A (AAA) */
 }
 
 [data-theme="dark"] body {
@@ -455,14 +468,12 @@ footer {
     box-shadow: 0 2px 0 rgba(0, 0, 0, .35);
 }
 
-/* Dark buttons – enforce contrast for <a> and <button> */
 [data-theme="dark"] .btn,
 [data-theme="dark"] .btn:link,
 [data-theme="dark"] .btn:visited {
     background: #1F2937;
     border-color: #334155;
     color: #E5E7EB;
-    /* ~8.7:1 AAA */
 }
 
 [data-theme="dark"] .btn:hover {
@@ -475,14 +486,12 @@ footer {
     background: var(--accent);
     color: #0B1220;
     border-color: #eab308;
-    /* ~8.3:1 AAA */
 }
 
 [data-theme="dark"] .btn.primary:hover {
     filter: brightness(.94);
 }
 
-/* Components on dark surfaces */
 [data-theme="dark"] section,
 [data-theme="dark"] .card,
 [data-theme="dark"] .result {
@@ -517,7 +526,6 @@ footer {
     color: #64748b;
 }
 
-/* Explorer on dark */
 [data-theme="dark"] .explorer-side {
     background: var(--surface);
     border-color: var(--border);
@@ -525,4 +533,15 @@ footer {
 
 [data-theme="dark"] .result-desc {
     color: var(--muted-strong);
+}
+
+[data-theme="dark"] #q,
+[data-theme="dark"] #type {
+    background: #111827;
+    border-color: #334155;
+    color: #E5E7EB;
+}
+
+[data-theme="dark"] .search-bar .favs {
+    color: #E5E7EB;
 }
