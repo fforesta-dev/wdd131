@@ -15,54 +15,7 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/theme.css">
     <script type="module" src="scripts/app.js"></script>
-    <script type="module">
-        import { saveFeedback } from './scripts/storage.js';
-        const form = document.getElementById('suggest-form');
-        const status = document.getElementById('form-status');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const data = new FormData(form);
-            const payload = Object.fromEntries(data.entries());
-            if (!payload.name || !payload.email || !payload.entryName || !payload.entryType || !payload.message) {
-                status.textContent = "Please complete all required fields.";
-                return;
-            }
-            saveFeedback({ ...payload, ts: new Date().toISOString() });
-            form.reset();
-            status.textContent = "Thanks! Your suggestion was saved locally.";
-        });
-    </script>
-    <script type="module">
-        import { NAMES } from './scripts/names.js'; // uses your data array
-        const q = document.getElementById('q-home');
-        const out = document.getElementById('home-results');
-
-        const tpl = (n) => `
-    <article class="result card">
-      <div class="pad">
-        <h3 class="result-title">${n.name}</h3>
-        <p class="result-desc">${n.desc}</p>
-      </div>
-    </article>`;
-
-        function render(list) {
-            const slice = list.slice(0, 8);
-            out.innerHTML = slice.length
-                ? slice.map(tpl).join('')
-                : `<p class="meta">No matches. Try a different name.</p>`;
-        }
-
-        function search() {
-            const term = q.value.trim().toLowerCase();
-            const filtered = term
-                ? NAMES.filter(n => n.name.toLowerCase().includes(term))
-                : NAMES; // default: show some entries
-            render(filtered);
-        }
-
-        q.addEventListener('input', search);
-        search(); // initial render
-    </script>
+    <script type="module" src="scripts/home.js"></script>
 </head>
 
 <body>
