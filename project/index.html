@@ -32,7 +32,8 @@
                     <li><a href="explorer.html">Explorer</a></li>
                     <li><a href="references.html">References</a></li>
                     <li class="theme">
-                        <input id="theme-toggle" type="checkbox" class="switch-input" aria-label="Toggle dark mode">
+                        <input id="theme-toggle" name="theme" type="checkbox" class="switch-input"
+                            aria-label="Toggle dark mode">
                         <label for="theme-toggle" class="switch" title="Toggle dark mode"></label>
                         <span class="icon" aria-hidden="true"></span>
                         <span class="toggle-caption">Dark mode</span>
@@ -69,7 +70,7 @@
                 <!-- Left: search/filters -->
                 <aside class="explorer-side">
                     <label for="q-home">Search names</label>
-                    <input id="q-home" name="q-home" placeholder="Type a name…">
+                    <input id="q-home" name="q-home" type="search" placeholder="Type a name…">
                     <p class="meta">Try: Alma, Moroni, Zarahemla…</p>
                     <p><a class="btn" href="explorer.html">Open full Explorer</a></p>
                 </aside>
@@ -123,10 +124,18 @@
         </section>
     </main>
 
-    <footer>
-        <p>© 2025 — Book of Mormon Names Explorer · <a href="references.html">References</a></p>
+    <footer class="site-footer">
+        <p>
+            &copy; <span id="currentyear"></span>
+            <span class="dot">💻</span>
+            Francesco Foresta
+            <span class="dot">💻</span>
+            Italy
+            <span class="dot">💻</span>
+            <a href="references.html">References</a>
+        </p>
+        <p id="lastModified" class="lastmod" aria-live="polite"></p>
     </footer>
-
 
 </body>
 
