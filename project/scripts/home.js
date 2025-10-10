@@ -28,12 +28,12 @@ const out = document.getElementById('home-results');
 
 const tpl = (n) => `
   <article class="result card">
+    <img src="${n.img}" alt="" width="480" height="280" loading="lazy" decoding="async">
     <div class="pad">
       <h3 class="result-title">${n.name}</h3>
       <p class="result-desc">${n.desc}</p>
     </div>
-  </article>
-`;
+  </article>`;
 
 function render(list) {
     const slice = list.slice(0, 8);

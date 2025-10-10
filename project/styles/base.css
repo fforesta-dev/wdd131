@@ -175,24 +175,33 @@ main {
 }
 
 .card {
-    background: #fff;
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(2, 6, 23, .05);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
 }
 
-.card img {
+.card img,
+.result img {
     width: 100%;
-    height: 140px;
+    height: 180px;
+    /* same as featured cards */
     object-fit: cover;
-    background: #e5e7eb;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: block;
+    margin: 0;
+    /* remove unwanted gaps */
+    padding: 0;
 }
 
 .card .pad {
-    padding: .9rem;
+    padding: 1rem;
+    padding-top: 0.75rem;
+    /* not too much space under the image */
 }
 
 .btn,
@@ -560,6 +569,10 @@ form .row {
 
 [data-theme="dark"] .search-bar .favs {
     color: #E5E7EB;
+}
+
+[data-theme="dark"] .result .thumb {
+    background: #111827;
 }
 
 html[data-theme="dark"] .site-footer {

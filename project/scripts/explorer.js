@@ -1,5 +1,5 @@
 // explorer.js
-import { NAMES } from "./names.js";
+import { NAMES, TYPES } from './names.js';
 import { getFavorites, toggleFavorite } from "./storage.js";
 
 const state = {
@@ -39,24 +39,28 @@ function applyFilters() {
 function renderList(list) {
     els.count.textContent = `${list.length} result${list.length === 1 ? "" : "s"}`;
     if (list.length === 0) {
-        els.list.innerHTML = /*html*/`<li class="result"><p>No matches. Try a different search or filter.</p></li>`;
+        els.list.innerHTML = `<li class="result"><p>No matches. Try a different search or filter.</p></li>`;
         return;
     }
+
     const favs = new Set(getFavorites());
-    els.list.innerHTML = list.map(it => /*html*/`
-    <li class="result" data-id="${it.id}">
-      <div class="row">
+    els.list.innerHTML = list.map(it => `
+  <li class="result card" data-id="${it.id}">
+    <img src="${it.img}" alt="" width="480" height="180" loading="lazy" decoding="async">
+    <div class="pad">
+      <div class="row" style="display:flex;justify-content:space-between;align-items:center;gap:.5rem">
         <strong>${it.name}</strong>
         <button class="btn" data-fav="${it.id}" aria-pressed="${favs.has(it.id)}">
           ${favs.has(it.id) ? "★ Favorited" : "☆ Favorite"}
         </button>
       </div>
       <div><span class="badge">${it.type}</span></div>
-      <p>${it.desc}</p>
+      <p class="result-desc">${it.desc}</p>
       <p><strong>Refs:</strong> ${it.refs.map(r => `<code>${r}</code>`).join(", ")}</p>
-      <p><strong>Pronunciation:</strong> ${it.pron}</p>
-    </li>
-  `).join("");
+      <p><strong>Pronunciation:</strong> ${it.pron || ""}</p>
+    </div>
+  </li>
+`).join("");
 
     // wire up buttons
     els.list.querySelectorAll("[data-fav]").forEach(btn => {
