@@ -1,4 +1,3 @@
-// storage.js
 const LS_KEYS = {
     favorites: "bom:favorites",
     theme: "bom:theme",
@@ -20,7 +19,7 @@ export function toggleFavorite(id) {
 }
 
 export function getTheme() {
-    const saved = localStorage.getItem("bom:theme");
+    const saved = localStorage.getItem(LS_KEYS.theme);
     if (saved) return saved;
     const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
     return prefersDark ? "dark" : "light";

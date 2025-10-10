@@ -1,8 +1,6 @@
-// scripts/home.js
 import { saveFeedback } from './storage.js';
 import { NAMES } from './names.js';
 
-// ----- Suggest-a-name form -----
 const form = document.getElementById('suggest-form');
 const status = document.getElementById('form-status');
 
@@ -22,7 +20,6 @@ if (form && status) {
     });
 }
 
-// ----- Quick Explorer preview on Home -----
 const q = document.getElementById('q-home');
 const out = document.getElementById('home-results');
 

@@ -1,6 +1,3 @@
-// scripts/names.js
-// Combine batches, dedupe by id, and assign a type-based fallback image.
-
 import { NAMES_BATCH_1 } from './names-batch-1.js';
 import { NAMES_BATCH_2 } from './names-batch-2.js';
 
@@ -36,7 +33,6 @@ for (const n of NAMES_RAW) {
   if (!byId.has(n.id)) {
     byId.set(n.id, {
       ...n,
-      // If no img provided, assign a random one this load
       img: (n.img && n.img.trim()) ? n.img : chooseFallback(n.type)
     });
   }

@@ -1,10 +1,9 @@
-// explorer.js
-import { NAMES, TYPES } from './names.js';
+import { NAMES } from './names.js';
 import { getFavorites, toggleFavorite } from "./storage.js";
 
 const state = {
     q: "",
-    type: "all",   // all | person | place | term
+    type: "all",
     onlyFavs: false
 };
 
@@ -62,7 +61,6 @@ function renderList(list) {
   </li>
 `).join("");
 
-    // wire up buttons
     els.list.querySelectorAll("[data-fav]").forEach(btn => {
         btn.addEventListener("click", () => {
             const id = btn.getAttribute("data-fav");
