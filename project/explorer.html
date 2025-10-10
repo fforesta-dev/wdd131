@@ -25,12 +25,17 @@
                 <img src="images/logo.webp" alt="" width="420" height="115" decoding="async">
                 <span class="visually-hidden">Book of Mormon Names Explorer</span>
             </a>
-
             <nav aria-label="Main">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="explorer.html" aria-current="page">Explorer</a></li>
-                    <li><a href="references.html">References</a></li>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="explorer.html" aria-current="page">Explorer</a>
+                    </li>
+                    <li>
+                        <a href="references.html">References</a>
+                    </li>
                     <li class="theme">
                         <input id="theme-toggle" type="checkbox" class="switch-input" aria-label="Toggle dark mode">
                         <label for="theme-toggle" class="switch" title="Toggle dark mode"></label>
@@ -40,18 +45,15 @@
                 </ul>
             </nav>
         </div>
-
         <div class="wrap">
             <h1 class="page-title">Explorer</h1>
         </div>
     </header>
-
     <main class="wrap">
         <div class="search-bar" role="search">
             <label class="visually-hidden" for="q">Search names</label>
             <input id="q" type="search" placeholder="Search by name, description, or reference…" autocomplete="off"
                 aria-describedby="count">
-
             <label class="visually-hidden" for="type">Filter type</label>
             <select id="type">
                 <option value="all">All types</option>
@@ -59,27 +61,19 @@
                 <option value="place">Place</option>
                 <option value="term">Term</option>
             </select>
-
-            <label class="favs"><input id="only-favs" type="checkbox"> Favorites only</label>
+            <label class="favs">
+                <input id="only-favs" type="checkbox"> Favorites only </label>
         </div>
-
         <p id="count" class="meta" aria-live="polite">0 results</p>
         <ul id="results" class="results" aria-live="polite"></ul>
     </main>
-
     <footer class="site-footer">
-        <p>
-            &copy; <span id="currentyear"></span>
-            <span class="dot">💻</span>
-            Francesco Foresta
-            <span class="dot">💻</span>
-            Italy
-            <span class="dot">💻</span>
+        <p> &copy; <span id="currentyear"></span>
+            <span class="dot">💻</span> Francesco Foresta <span class="dot">💻</span> Italy <span class="dot">💻</span>
             <a href="references.html">References</a>
         </p>
         <p id="lastModified" class="lastmod" aria-live="polite"></p>
     </footer>
-
 </body>
 
 </html>

@@ -4,10 +4,19 @@ if (cy) cy.textContent = new Date().getFullYear();
 const lm = document.getElementById("lastModified");
 if (lm) lm.textContent = `Last Modification: ${document.lastModified}`;
 
-import { getFavorites, toggleFavorite, getTheme, setTheme } from "./storage.js";
-import { NAMES } from "./names.js";
+import {
+  getFavorites,
+  toggleFavorite,
+  getTheme,
+  setTheme
+} from "./storage.js";
+import {
+  NAMES
+} from "./names.js";
 
-function byId(id) { return document.getElementById(id); }
+function byId(id) {
+  return document.getElementById(id);
+}
 
 function renderFeatured() {
   const mount = byId("featured");

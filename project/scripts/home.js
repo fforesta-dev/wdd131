@@ -1,5 +1,9 @@
-import { saveFeedback } from './storage.js';
-import { NAMES } from './names.js';
+import {
+    saveFeedback
+} from './storage.js';
+import {
+    NAMES
+} from './names.js';
 
 const form = document.getElementById('suggest-form');
 const status = document.getElementById('form-status');
@@ -14,7 +18,10 @@ if (form && status) {
             status.textContent = 'Please complete all required fields.';
             return;
         }
-        saveFeedback({ ...payload, ts: new Date().toISOString() });
+        saveFeedback({
+            ...payload,
+            ts: new Date().toISOString()
+        });
         form.reset();
         status.textContent = 'Thanks! Your suggestion was saved locally.';
     });
@@ -34,19 +41,19 @@ const tpl = (n) => `
 
 function render(list) {
     const slice = list.slice(0, 8);
-    out.innerHTML = slice.length
-        ? slice.map(tpl).join('')
-        : `<p class="meta">No matches. Try a different name.</p>`;
+    out.innerHTML = slice.length ?
+        slice.map(tpl).join('') :
+        `<p class="meta">No matches. Try a different name.</p>`;
 }
 
 function search() {
     const term = (q?.value || '').trim().toLowerCase();
-    const filtered = term
-        ? NAMES.filter(n =>
+    const filtered = term ?
+        NAMES.filter(n =>
             n.name.toLowerCase().includes(term) ||
             (n.desc || '').toLowerCase().includes(term)
-        )
-        : NAMES;
+        ) :
+        NAMES;
     render(filtered);
 }
 

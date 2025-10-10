@@ -1,5 +1,9 @@
-import { NAMES_BATCH_1 } from './names-batch-1.js';
-import { NAMES_BATCH_2 } from './names-batch-2.js';
+import {
+  NAMES_BATCH_1
+} from './names-batch-1.js';
+import {
+  NAMES_BATCH_2
+} from './names-batch-2.js';
 
 const FALLBACKS = {
   person: [
@@ -39,7 +43,9 @@ for (const n of NAMES_RAW) {
 }
 
 export const NAMES = [...byId.values()].sort((a, b) =>
-  a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+  a.name.localeCompare(b.name, 'en', {
+    sensitivity: 'base'
+  })
 );
 
 export const TYPES = ['all', 'person', 'place', 'term'];
