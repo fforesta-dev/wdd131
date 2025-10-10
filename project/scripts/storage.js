@@ -5,8 +5,11 @@ const LS_KEYS = {
 };
 
 export function getFavorites() {
-    try { return JSON.parse(localStorage.getItem(LS_KEYS.favorites)) ?? []; }
-    catch { return []; }
+    try {
+        return JSON.parse(localStorage.getItem(LS_KEYS.favorites)) ?? [];
+    } catch {
+        return [];
+    }
 }
 export function setFavorites(ids) {
     localStorage.setItem(LS_KEYS.favorites, JSON.stringify(ids));

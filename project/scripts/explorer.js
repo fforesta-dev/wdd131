@@ -1,5 +1,10 @@
-import { NAMES } from './names.js';
-import { getFavorites, toggleFavorite } from "./storage.js";
+import {
+    NAMES
+} from './names.js';
+import {
+    getFavorites,
+    toggleFavorite
+} from "./storage.js";
 
 const state = {
     q: "",
@@ -15,11 +20,15 @@ const els = {
     count: document.getElementById("count")
 };
 
-function normalize(s) { return s.toLowerCase().normalize("NFKD"); }
+function normalize(s) {
+    return s.toLowerCase().normalize("NFKD");
+}
 
 function applyFilters() {
     let items = NAMES;
-    if (state.type !== "all") { items = items.filter(it => it.type === state.type); }
+    if (state.type !== "all") {
+        items = items.filter(it => it.type === state.type);
+    }
     if (state.q) {
         const qn = normalize(state.q);
         items = items.filter(it =>
@@ -71,9 +80,12 @@ function renderList(list) {
     });
 }
 
-// lightweight debounce
 function debounce(fn, ms = 200) {
-    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+    let t;
+    return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn(...args), ms);
+    };
 }
 
 const update = debounce(() => {
@@ -82,12 +94,20 @@ const update = debounce(() => {
 }, 150);
 
 function initExplorer() {
-    if (!els.q) return; // not on this page
-    els.q.addEventListener("input", (e) => { state.q = e.target.value.trim(); update(); });
-    els.type.addEventListener("change", (e) => { state.type = e.target.value; update(); });
-    els.favs.addEventListener("change", (e) => { state.onlyFavs = e.target.checked; update(); });
+    if (!els.q) return;
+    els.q.addEventListener("input", (e) => {
+        state.q = e.target.value.trim();
+        update();
+    });
+    els.type.addEventListener("change", (e) => {
+        state.type = e.target.value;
+        update();
+    });
+    els.favs.addEventListener("change", (e) => {
+        state.onlyFavs = e.target.checked;
+        update();
+    });
 
-    // initial render
     renderList(applyFilters());
 }
 

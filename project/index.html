@@ -25,12 +25,17 @@
                 <img src="images/logo.webp" alt="" width="420" height="115" decoding="async">
                 <span class="visually-hidden">Book of Mormon Names Explorer</span>
             </a>
-
             <nav aria-label="Main">
                 <ul>
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="explorer.html">Explorer</a></li>
-                    <li><a href="references.html">References</a></li>
+                    <li>
+                        <a href="index.html" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="explorer.html">Explorer</a>
+                    </li>
+                    <li>
+                        <a href="references.html">References</a>
+                    </li>
                     <li class="theme">
                         <input id="theme-toggle" name="theme" type="checkbox" class="switch-input"
                             aria-label="Toggle dark mode">
@@ -41,29 +46,27 @@
                 </ul>
             </nav>
         </div>
-
         <div class="wrap">
             <h1 class="page-title">Home</h1>
         </div>
     </header>
-
     <main class="wrap">
         <section class="hero">
             <div>
                 <p>Search people and places, see references and pronunciations, and save favorites for review.</p>
-                <p><a class="btn primary" href="explorer.html">Open the Explorer</a></p>
+                <p>
+                    <a class="btn primary" href="explorer.html">Open the Explorer</a>
+                </p>
             </div>
             <div>
                 <img src="images/hero.webp" alt="Open scriptures with notes and highlights" width="800" height="520"
                     loading="eager" decoding="async">
             </div>
         </section>
-
         <section>
             <h2>Featured names</h2>
             <div id="featured" class="card-grid" aria-live="polite"></div>
         </section>
-
         <section id="home-explorer" class="explorer-preview">
             <h2>Quick Explorer</h2>
             <div class="explorer-grid">
@@ -71,15 +74,15 @@
                     <label for="q-home">Search names</label>
                     <input id="q-home" name="q-home" type="search" placeholder="Type a name…">
                     <p class="meta">Try: Alma, Moroni, Zarahemla…</p>
-                    <p><a class="btn" href="explorer.html">Open full Explorer</a></p>
+                    <p>
+                        <a class="btn" href="explorer.html">Open full Explorer</a>
+                    </p>
                 </aside>
-
                 <div>
                     <div id="home-results" class="results" aria-live="polite"></div>
                 </div>
             </div>
         </section>
-
         <section>
             <h2>Suggest a name</h2>
             <p class="notice">Use this form to suggest an entry we should add. We’ll review your suggestion.</p>
@@ -121,20 +124,13 @@
             </form>
         </section>
     </main>
-
     <footer class="site-footer">
-        <p>
-            &copy; <span id="currentyear"></span>
-            <span class="dot">💻</span>
-            Francesco Foresta
-            <span class="dot">💻</span>
-            Italy
-            <span class="dot">💻</span>
+        <p> &copy; <span id="currentyear"></span>
+            <span class="dot">💻</span> Francesco Foresta <span class="dot">💻</span> Italy <span class="dot">💻</span>
             <a href="references.html">References</a>
         </p>
         <p id="lastModified" class="lastmod" aria-live="polite"></p>
     </footer>
-
 </body>
 
 </html>
