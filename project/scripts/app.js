@@ -1,12 +1,9 @@
-// Current year
 const cy = document.getElementById("currentyear");
 if (cy) cy.textContent = new Date().getFullYear();
 
-// Last modified
 const lm = document.getElementById("lastModified");
 if (lm) lm.textContent = `Last Modification: ${document.lastModified}`;
 
-// app.js
 import { getFavorites, toggleFavorite, getTheme, setTheme } from "./storage.js";
 import { NAMES } from "./names.js";
 
@@ -37,7 +34,6 @@ function renderFeatured() {
 
   mount.innerHTML = html;
 
-  // Favorite buttons
   mount.querySelectorAll("[data-fav]").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.getAttribute("data-fav");
@@ -55,7 +51,9 @@ function themeInit() {
   if (tgl) {
     tgl.checked = current === "dark";
     tgl.addEventListener("change", () => {
-      setTheme(tgl.checked ? "dark" : "light");
+      const newTheme = tgl.checked ? "dark" : "light";
+      setTheme(newTheme);
+      document.documentElement.dataset.theme = newTheme;
     });
   }
 }
