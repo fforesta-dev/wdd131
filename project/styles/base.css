@@ -175,24 +175,33 @@ main {
 }
 
 .card {
-    background: #fff;
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(2, 6, 23, .05);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
 }
 
-.card img {
+.card img,
+.result img {
     width: 100%;
-    height: 140px;
+    height: 180px;
+    /* same as featured cards */
     object-fit: cover;
-    background: #e5e7eb;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: block;
+    margin: 0;
+    /* remove unwanted gaps */
+    padding: 0;
 }
 
 .card .pad {
-    padding: .9rem;
+    padding: 1rem;
+    padding-top: 0.75rem;
+    /* not too much space under the image */
 }
 
 .btn,
@@ -363,7 +372,6 @@ form .row {
 }
 
 .search-bar>label:last-of-type {
-    grid-area: fav;
     display: inline-flex;
     align-items: center;
     gap: .5rem;
@@ -390,9 +398,7 @@ form .row {
 @media (min-width: 720px) {
     .search-bar {
         grid-template-columns: minmax(220px, 360px) auto 1fr;
-        grid-template-areas:
-            "q    q    q"
-            "type fav  .";
+        grid-template-areas: "q q q" "type fav .";
     }
 }
 
@@ -442,10 +448,33 @@ form .row {
     font-size: .95rem;
 }
 
-footer {
-    color: #94a3b8;
-    text-align: center;
+/* Footer with AA/AAA contrast in both themes */
+.site-footer {
+    margin-top: 2rem;
     padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+}
+
+.site-footer a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+    color: var(--link-hover);
+}
+
+.site-footer .lastmod {
+    margin-top: .5rem;
+    color: var(--muted);
+}
+
+.site-footer .dot {
+    opacity: .9;
 }
 
 [data-theme="dark"] {
@@ -522,10 +551,6 @@ footer {
     color: #94a3b8;
 }
 
-[data-theme="dark"] footer {
-    color: #64748b;
-}
-
 [data-theme="dark"] .explorer-side {
     background: var(--surface);
     border-color: var(--border);
@@ -544,4 +569,22 @@ footer {
 
 [data-theme="dark"] .search-bar .favs {
     color: #E5E7EB;
+}
+
+[data-theme="dark"] .result .thumb {
+    background: #111827;
+}
+
+html[data-theme="dark"] .site-footer {
+    border-top-color: var(--border);
+    color: var(--muted);
+}
+
+html[data-theme="dark"] .site-footer a {
+    color: var(--link);
+}
+
+html[data-theme="dark"] .site-footer a:hover,
+html[data-theme="dark"] .site-footer a:focus-visible {
+    color: var(--link-hover);
 }
