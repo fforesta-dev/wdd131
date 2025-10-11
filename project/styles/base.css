@@ -475,6 +475,15 @@ form .row {
     opacity: 0.9;
 }
 
+.hero img {
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 8px !important;
+    background: none !important;
+}
+
+
 [data-theme="dark"] {
     --neutral: #0b1220;
     --ink: #e5e7eb;
@@ -520,12 +529,17 @@ form .row {
 }
 
 [data-theme="dark"] section,
-[data-theme="dark"] .card,
 [data-theme="dark"] .result {
-    background: var(--surface);
-    border-color: var(--border);
+    background: transparent;
+    border-color: transparent;
     box-shadow: none;
 }
+
+[data-theme="dark"] .card {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
 
 [data-theme="dark"] .card img {
     background: #111827;
